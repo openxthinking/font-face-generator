@@ -1,0 +1,240 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@font-face generator - OpenThinking</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+
+    <meta name="theme-color" content="#0D1117">
+
+    <meta name="description" content="">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    
+    <!-- Facebook OG Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://openthinking.app/font-face-generator/">
+    <meta property="og:site_name" content="OpenThinking">
+    <meta property="og:title" content="@font-face generator by OpenThinking">
+    <meta property="og:description" content="@font-face generator by OpenThinking">
+    <meta property="og:image" content="">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@font-face generator by OpenThinking">
+    <meta name="twitter:description" content="@font-face generator by OpenThinking">
+    
+    <link rel="canonical" href="https://openthinking.app/x/font-face-generator/">
+
+    <link rel="icon" type="image/png" href="https://openthinking.net/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="https://openthinking.net/favicon.png">
+
+    <script>document.documentElement.className='js'</script>
+
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selekkt-skelet@3.4.0/css/skelet.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <!-- browse the icons: https://fontawesome.com/v6.0/icons?m=free -->
+
+<style>
+:root { --radius: 2.2rem }
+#app { max-width: 95vw; margin-inline: auto }
+[v-cloak] { display: none }
+
+.tag { 
+	background: #171B22; 
+	padding: .1rem 1rem; 
+	border: 1px solid #30363D; 
+	border-radius: var(--radius); 
+	font-style: italic
+}
+		
+small { font-size: 60% }
+
+.kinda-small { font-size: 70%; }
+.dim { opacity: .4 }
+.card { background: #0D1117; border-radius: var(--radius); padding: var(--margin) }
+
+footer, header { margin: var(--rowGap) 0; padding: var(--padding); border-radius: 3rem; background: #0D1117 }
+footer img { filter: invert(1) }
+
+header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
+
+.ogg {
+    background-color: white;
+    background-image: linear-gradient(45deg, #EB9038, #F3C3CF, #8DC4F3);
+
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+</style>
+</head>
+<body dark-mode>
+
+<div id="app">
+<header class="text-center">
+	<h1 class="fullwidth" x-flex jc="center">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.01 321.75" width="50px" class="inline large-only"><path d="M61.83 77.65 47.22 14.01l27.34 26.06 32.61-37.28 9.15 32.73L151.54 0l-6.67 76.08c-47.94-17.88-83.04 1.57-83.04 1.57Zm119.05 42.8-6.3-8.12-16.31 6.79 13.46 6.36-28.61 11.82 12.18 5.76-56.8 20.37 28.67-21.1-12.17-5.76 27.4-14.85-9.58-4.54 29.88-16.13c-15.76-11.46-45.82-23.88-95.53-10.73 0 0-42.37 9.76-47.95 59.16 0 0-3.27 8.07-1.39 16.43.91 4.67 1.88 9.94.49 14.61a34 34 0 0 1-4.67 9.94s-23.46 25-8.85 30.13c0 0 12.24 1.09 9.94 9.94 0 0-8.55 11.82 1.39 14.61 0 0-6.54 6.54-2.3 8.36 0 0 5.58 5.76 3.7 11.34 0 0-5.76 19.7 8.36 18.3 0 0 16.43.91 24.37 0 0 0 21.58-3.39 19.7 26.68h.24c0 6.54 5 11.94 11 11.94h76.32c6.06 0 11-5.4 11-11.94a233.57 233.57 0 0 1-6.52-28.68s-7.16-19.27 7.45-38c-.03-.06 51.19-63.53 11.43-122.69Z" fill="#EB9038" /></svg> <span class="ogg">@font-face generator</span>
+	</h1>
+</header>
+
+<main>
+<x-grid columns="2" columns-s="1">
+<!-- Input -->
+<x-cell class="card">
+	<x-grid columns="2" columns-m="1f" columns-s="1f" style="gap: 2rem">
+		<x-cell>
+			<label for="fontfamily"><i class="fa-solid fa-font"></i> &nbsp; Font name</label>
+			<input id="fontfamily" type="text" v-model="fontfamily" placeholder="Your-Font-Name" />		
+		</x-cell>
+
+		<x-cell>
+            <label for="usefont4"><i class="fa-solid fa-heading"></i> &nbsp; Apply font to</label>
+			<select id="usefont4" v-model="usefont4">
+				<option value="uff1" selected>Body text and Headings</option>
+				<option value="uff2">Body</option>
+				<option value="uff3">Headings</option>
+			</select>
+		</x-cell>
+
+		<x-cell span="row">
+			<span class="text-hr">
+				<i class="fa-solid fa-bold"></i> &nbsp; <i class="fa-solid fa-italic"></i>
+			</span>
+		</x-cell>
+
+		<x-cell>
+		<fieldset>
+		<legend><i class="fa-solid fa-bold"></i> &nbsp; Font weight</legend>
+		<x-flex style="gap:2rem">
+			<x-cell>
+				<input type="radio" id="fontweight100" value="100" v-model="fontweight" checked="checked" />
+				<label for="fontweight100">Normal</label>
+			</x-cell>
+
+			<x-cell>
+				<input type="radio" id="fontweight700" value="700" v-model="fontweight" />
+				<label for="fontweight700">Bold</label>
+			</x-cell>
+		</x-flex>
+		</fieldset>
+		</x-cell>
+
+		<x-cell>
+		<fieldset>
+		<legend><i class="fa-solid fa-italic"></i> &nbsp; Font style</legend>
+		<x-flex style="gap:2rem">
+			<x-cell>
+			<input type="radio" id="fontstylenormal" value="normal" v-model="fontstyle" checked="checked" />
+			<label for="fontstylenormal">Normal</label>
+			</x-cell>
+			<x-cell>
+			<input type="radio" id="fontstyleitalic" value="italic" v-model="fontstyle" />
+			<label for="fontstyleitalic">Italic (oblique)</label>
+			</x-cell>
+		</x-flex>
+		</fieldset>
+		</x-cell>
+		<x-cell span="row"><span class="text-hr"><i class="fa-solid fa-link"></i></span></x-cell>
+		<x-cell>
+			<label for="urlEot"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.eot</span></label>
+			<input id="urlEot" type="url" v-model="urlEot" placeholder="font-URL-eot" />
+		</x-cell>
+		<x-cell>
+			<label for="urlTtf"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.ttf</span></label>
+			<input id="urlTtf" type="url" v-model="urlTtf" placeholder="font-URL-ttf" />
+		</x-cell>
+		<x-cell>
+			<label for="urlWoff"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.woff</span></label>
+			<input id="urlWoff" type="url" v-model="urlWoff" placeholder="font-URL-woff" />
+		</x-cell>
+		<x-cell>
+			<label for="urlWoff2"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.woff2</span></label>
+			<input id="urlWoff2" type="url" v-model="urlWoff2" placeholder="font-URL-woff2" />
+		</x-cell>
+		<x-cell span="row">
+			<span class="dim kinda-small block text-center">
+				<i class="fa-solid fa-circle-info"></i> Leave the <i class="fa-solid fa-link"></i> URL input empty if you do not have a specific font extension.
+			</span>
+		</x-cell>
+	</x-grid>
+</x-cell>
+
+<!-- Output -->
+<x-cell>
+<div class="sticky" style="--sticky:var(--margin)">
+<code style="display:block; max-width:100%" class="language-css"><pre contenteditable="true">
+&lt;style&gt;
+@font-face {
+	font-family: "{{ fontfamily }}";
+	font-weight: {{ fontweight }};
+	font-style: {{ fontstyle }};
+	font-display: swap;
+	src:<span v-cloak v-if="urlEot">		url("{{ urlEot }}") format("embedded-opentype"),</span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype"),</span><span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff"),</span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2")</span>
+}
+
+:root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--headingsFontFamily: "{{ fontfamily }}";</span>}
+&lt;/style&gt;</pre></code>
+<small class="dim block text-center"><i class="fa-solid fa-copy"></i> <strong>Copy</strong> and <strong>Paste</strong> the generated code inside your <span class="tag">global-fonts.liquid</span> file.</small>
+</div>
+</x-cell>
+</x-grid>
+</main>
+
+<footer>
+	<x-flex wrap-m="wrap" wrap-s="wrap" ai="center">
+	 	<x-cell>
+	 		<a href="https://openthinking.net/" target="_blank" class="button is-blank">
+	 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.01 321.75" width="28px"><path d="M61.83 77.65 47.22 14.01l27.34 26.06 32.61-37.28 9.15 32.73L151.54 0l-6.67 76.08c-47.94-17.88-83.04 1.57-83.04 1.57Zm119.05 42.8-6.3-8.12-16.31 6.79 13.46 6.36-28.61 11.82 12.18 5.76-56.8 20.37 28.67-21.1-12.17-5.76 27.4-14.85-9.58-4.54 29.88-16.13c-15.76-11.46-45.82-23.88-95.53-10.73 0 0-42.37 9.76-47.95 59.16 0 0-3.27 8.07-1.39 16.43.91 4.67 1.88 9.94.49 14.61a34 34 0 0 1-4.67 9.94s-23.46 25-8.85 30.13c0 0 12.24 1.09 9.94 9.94 0 0-8.55 11.82 1.39 14.61 0 0-6.54 6.54-2.3 8.36 0 0 5.58 5.76 3.7 11.34 0 0-5.76 19.7 8.36 18.3 0 0 16.43.91 24.37 0 0 0 21.58-3.39 19.7 26.68h.24c0 6.54 5 11.94 11 11.94h76.32c6.06 0 11-5.4 11-11.94a233.57 233.57 0 0 1-6.52-28.68s-7.16-19.27 7.45-38c-.03-.06 51.19-63.53 11.43-122.69Z" fill="#ffffff" /></svg>
+	 		</a>
+	 	</x-cell>
+		<x-cell>
+			<a href="https://bullet.docs.openthinking.net/" target="_blank" class="button is-blank">Documentation</a>
+		</x-cell>
+		<x-cell>
+			<a href="https://openthinking.net/shopify-themes/" target="_blank" class="button is-blank">Themes</a>
+		</x-cell>
+		<x-cell>
+			<a href="https://openthinking.net/shopify-services/" target="_blank" class="button is-blank">Shopify experts</a>
+		</x-cell>
+		<x-cell>
+			<a href="https://openthinking.net/support" target="_blank" class="button is-blank">Support</a>
+		</x-cell>
+	</x-flex>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.29/dist/vue.global.min.js"></script>
+<script>
+const app = Vue.createApp({
+	data() {
+		return {
+			usefont4: 'uff1',
+
+			fontweight: 100,
+			fontstyle: 'normal',
+
+			fontfamily: '',
+			urlEot: '',
+			urlTtf: '',
+			urlWoff: '',
+			urlWoff2: '',
+		}
+	}
+});
+
+app.config.compilerOptions.isCustomElement = tag => tag.startsWith('x-');
+app.mount('#app');
+</script>
+
+</body>
+</html>
