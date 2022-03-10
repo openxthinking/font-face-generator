@@ -180,7 +180,7 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 	src:<span v-cloak v-if="urlEot">		url("{{ urlEot }}") format("embedded-opentype"),</span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype"),</span><span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff"),</span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2")</span>
 }
 
-:root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--headingsFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'">	--logoFontFamily: "{{ fontfamily }}";</span>}
+:root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--headingsFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'">	--logoFontFamily: "{{ fontfamily }}"!important;</span>}
 &lt;/style&gt;</pre></code>
 <small class="dim block text-center"><i class="fa-solid fa-copy"></i> <strong>Copy</strong> and <strong>Paste</strong> the generated code inside your <span class="tag">global-fonts.liquid</span> file.</small>
 </div>
