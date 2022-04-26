@@ -144,7 +144,7 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 		<x-cell span="row">
 			<span class="text-hr"><i class="fa-solid fa-link"></i>&nbsp;Font URL</span>
 			<span class="dim kinda-small block text-center">
-				<i class="fa-solid fa-circle-info"></i> Leave the <i class="fa-solid fa-link"></i> URL input empty if you do not have a specific font extension.
+				<i class="fa-solid fa-circle-info"></i> Leave the <i class="fa-solid fa-link"></i> URL input empty if you do not have a specific font type.
 			</span>
 		</x-cell>
 		<x-cell>
@@ -156,10 +156,6 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 			<input id="urlWoff2" type="url" v-model="urlWoff2" placeholder="font-URL-woff2" />
 		</x-cell>
 		<x-cell>
-			<label for="urlEot"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.eot</span></label>
-			<input id="urlEot" type="url" v-model="urlEot" placeholder="font-URL-eot" />
-		</x-cell>
-		<x-cell>
 			<label for="urlTtf"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.ttf</span></label>
 			<input id="urlTtf" type="url" v-model="urlTtf" placeholder="font-URL-ttf" />
 		</x-cell>
@@ -167,9 +163,13 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 			<label for="urlOtf"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.otf</span></label>
 			<input id="urlOtf" type="url" v-model="urlOtf" placeholder="font-URL-otf" />
 		</x-cell>
+		<x-cell data-tooltip="Font not supported by browsers" tooltip-pos="down">
+			<label><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.eot</span></label>
+			<input type="url" placeholder="font-URL-eot" disabled>
+		</x-cell>
 		<x-cell span="row">
 			<span class="dim kinda-small block text-center">
-				<span class="tag">EOT</span> <span class="tag">TTF</span> <span class="tag">OTF</span> are not webfont file types. Use at your own risk.
+				<span class="tag">TTF</span> <span class="tag">OTF</span> are not webfont file types. Use only as fallback.
 			</span>
 		</x-cell>
 		<x-cell span="row" js="center">
@@ -188,7 +188,7 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 	font-weight: {{ fontWeightSe }};
 	font-style: {{ fontstyle }};
 	font-display: swap;
-	src:<span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff"),</span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2"),</span><span v-cloak v-if="urlEot">		url("{{ urlEot }}") format("embedded-opentype"),</span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype"),</span><span v-cloak v-if="urlOtf">		url("{{ urlOtf }}") format("opentype")</span>
+	src:<span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff"),</span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2"),</span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype"),</span><span v-cloak v-if="urlOtf">		url("{{ urlOtf }}") format("opentype")</span>
 }
 
 :root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--hFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'">	--logoFontFamily: "{{ fontfamily }}"!important;</span>}
@@ -236,7 +236,6 @@ const app = Vue.createApp({
 			fontfamily: '',
 			urlWoff: '',
 			urlWoff2: '',
-			urlEot: '',
 			urlTtf: '',
 			urlOtf: '',
 		}
