@@ -2,15 +2,15 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>@font-face generator - OpenThinking</title>
+	<meta charset="utf-8">
+	<title>@font-face generator - OpenThinking</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
     <meta name="theme-color" content="#0D1117">
 
-    <meta name="description" content="OpenThinking font face generator.">
+    <meta name="description" content="OpenThinking @font-face generator">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     
     <!-- Facebook OG Tags -->
@@ -37,43 +37,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selekkt-skelet@3.4.0/css/skelet.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<style>
-:root { --radius: 2.2rem }
-#app { max-width: 95vw; margin-inline: auto }
-[v-cloak] { display: none }
+	<style>
+	:root { --radius: 2.2rem }
+	#app { max-width: 95vw; margin-inline: auto }
+	[v-cloak] { display: none }
 
-.tag { 
-	background: #171B22; 
-	padding: .1rem 1rem; 
-	border: 1px solid #30363D; 
-	border-radius: var(--radius); 
-	font-style: italic
-}
-		
-small { font-size: 60% }
+	.tag { 
+		background: #171B22; 
+		padding: .1rem 1rem; 
+		border: 1px solid #30363D; 
+		border-radius: var(--radius); 
+		font-style: italic
+	}
+			
+	small { font-size: 60% }
 
-.kinda-small { font-size: 70%; }
-.dim { opacity: .4 }
-.card { background: #0D1117; border-radius: var(--radius); padding: var(--margin) }
+	.kinda-small { font-size: 70%; }
+	.dim { opacity: .4 }
+	.card { background: #0D1117; border-radius: var(--radius); padding: var(--margin) }
 
-footer, header { margin: var(--rowGap) 0; padding: var(--padding); border-radius: 3rem; background: #0D1117 }
-footer img { filter: invert(1) }
+	footer, header { margin: var(--rowGap) 0; padding: var(--padding); border-radius: 3rem; background: #0D1117 }
+	footer img { filter: invert(1) }
 
-header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
+	header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 
-.ogg {
-    background-color: white;
-    background-image: linear-gradient(45deg, #EB9038, #F3C3CF, #8DC4F3);
+	.ogg {
+	    background-color: white;
+	    background-image: linear-gradient(45deg, #EB9038, #F3C3CF, #8DC4F3);
 
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
+	    -webkit-text-fill-color: transparent;
+	    text-fill-color: transparent;
+		-moz-text-fill-color: transparent;
 
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-}
-</style>
+	    -webkit-background-clip: text;
+	    -moz-background-clip: text;
+	    background-clip: text;
+	}
+	</style>
 </head>
 <body dark-mode>
 
@@ -149,21 +149,21 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 		</x-cell>
 		<x-cell>
 			<label for="urlWoff"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.woff</span></label>
-			<input id="urlWoff" type="url" v-model="urlWoff" placeholder="font-URL-woff" />
+			<input id="urlWoff" type="url" v-model="urlWoff" placeholder="font-URL-woff" oninvalid="this.setCustomValidity('Please match the requested format')" >
 		</x-cell>
 		<x-cell>
 			<label for="urlWoff2"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.woff2</span></label>
-			<input id="urlWoff2" type="url" v-model="urlWoff2" placeholder="font-URL-woff2" />
+			<input id="urlWoff2" type="url" v-model="urlWoff2" placeholder="font-URL-woff2" oninvalid="this.setCustomValidity('Please match the requested format')" >
 		</x-cell>
 		<x-cell>
 			<label for="urlTtf"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.ttf</span></label>
-			<input id="urlTtf" type="url" v-model="urlTtf" placeholder="font-URL-ttf" />
+			<input id="urlTtf" type="url" v-model="urlTtf" placeholder="font-URL-ttf" oninvalid="this.setCustomValidity('Please match the requested format')" >
 		</x-cell>
 		<x-cell>
 			<label for="urlOtf"><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.otf</span></label>
-			<input id="urlOtf" type="url" v-model="urlOtf" placeholder="font-URL-otf" />
+			<input id="urlOtf" type="url" v-model="urlOtf" placeholder="font-URL-otf" oninvalid="this.setCustomValidity('Please match the requested format')" >
 		</x-cell>
-		<x-cell data-tooltip="Font not supported by browsers" tooltip-pos="down">
+		<x-cell data-tooltip="Font type not supported by browsers" tooltip-pos="down" disabled>
 			<label><i class="fa-solid fa-link"></i> &nbsp; URL <span class="tag">.eot</span></label>
 			<input type="url" placeholder="font-URL-eot" disabled>
 		</x-cell>
@@ -184,11 +184,11 @@ header h1 { letter-spacing: -3px; font-size: clamp(1rem, 12vw, 10rem)}
 <code style="display:block; max-width:100%" class="language-css"><pre contenteditable="true">
 &lt;style&gt;
 @font-face {
-	font-family: "{{ fontfamily }}";
+	font-family: "{{ fontfamily }}", sans-serif;
 	font-weight: {{ fontWeightSe }};
 	font-style: {{ fontstyle }};
 	font-display: swap;
-	src:<span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff"),</span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2"),</span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype"),</span><span v-cloak v-if="urlOtf">		url("{{ urlOtf }}") format("opentype")</span>
+	src:<span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff")<span v-cloak v-if="urlWoff2 || urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2")<span v-cloak v-if="urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype")<span v-cloak v-if="urlOtf">,</span></span><span v-cloak v-if="urlOtf">		url("{{ urlOtf }}") format("opentype")</span>
 }
 
 :root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--hFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'">	--logoFontFamily: "{{ fontfamily }}"!important;</span>}
@@ -234,6 +234,7 @@ const app = Vue.createApp({
 			fontstyle: 'normal',
 
 			fontfamily: '',
+
 			urlWoff: '',
 			urlWoff2: '',
 			urlTtf: '',
