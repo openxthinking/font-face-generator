@@ -184,14 +184,14 @@
 <code style="display:block; max-width:100%" class="language-css"><pre contenteditable="true">
 &lt;style&gt;
 @font-face {
-	font-family: "{{ fontfamily }}";
-	font-weight: {{ fontWeightSe }};
-	font-style: {{ fontstyle }};
-	font-display: swap;
-	src:<span v-cloak v-if="urlWoff">		url("{{ urlWoff }}") format("woff")<span v-cloak v-if="urlWoff2 || urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlWoff2">		url("{{ urlWoff2 }}") format("woff2")<span v-cloak v-if="urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlTtf">		url("{{ urlTtf }}") format("truetype")<span v-cloak v-if="urlOtf">,</span></span><span v-cloak v-if="urlOtf">		url("{{ urlOtf }}") format("opentype")</span>
+  font-family: "{{ fontfamily }}";
+  font-weight: {{ fontWeightSe }};
+  font-style: {{ fontstyle }};
+  font-display: swap;
+  src:<span v-cloak v-if="urlWoff">	url("{{ urlWoff }}") format("woff")<span v-cloak v-if="urlWoff2 || urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlWoff2">	url("{{ urlWoff2 }}") format("woff2")<span v-cloak v-if="urlTtf || urlOtf">,</span></span><span v-cloak v-if="urlTtf">	url("{{ urlTtf }}") format("truetype")<span v-cloak v-if="urlOtf">,</span></span><span v-cloak v-if="urlOtf">	url("{{ urlOtf }}") format("opentype")</span>
 }
 
-:root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'">	--fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'">	--hFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'">	--logoFontFamily: "{{ fontfamily }}"!important;</span>}
+:root {<span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff2'"> --fontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff3'"> --hFontFamily: "{{ fontfamily }}";</span><span v-cloak v-if="usefont4 === 'uff1' || usefont4 === 'uff4'"> --logoFontFamily: "{{ fontfamily }}"!important;</span>}
 &lt;/style&gt;</pre></code>
 <small class="dim block text-center"><i class="fa-solid fa-copy"></i> <strong>Copy</strong> and <strong>Paste</strong> the generated code inside your <span class="tag">global-fonts.liquid</span> file.</small>
 </div>
