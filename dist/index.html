@@ -32,16 +32,20 @@
     <link rel="apple-touch-icon-precomposed" href="https://openthinking.net/favicon.png">
 
     <script>document.documentElement.className='js'</script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet-tooltips.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet-tooltips.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 <style>
-:root {
-	--radius: 2.2rem;
-    --globalScale: 1;
-    --inputMargin: var(--space-3) 0px 0px;
+:where(html) {
+    --radius: 2.2rem;
+    --gap: var(--space-1);
+    --globalScale: .88;
+    --inputMargin: 0px;
+    --inputPadding: var(--space-3) var(--space-4);
     --buttonPadding: var(--space-2) var(--space-3);
+    --buttonMargin: 0;
 }
 
 [dark-mode] {
@@ -62,12 +66,15 @@
 [v-cloak] { display: none }
 
 .form-row {
-	padding: var(--padding);
-	x-subgrid {
-		gap: var(--space-4);
-		padding: var(--padding);
-	}
+  padding-inline: var(--space-2);
+  x-subgrid { gap: var(--space-4) }
 }
+
+.url-row { margin-block-start: var(--space-4) }
+.url-inputs { padding-inline: var(--space-2); margin-block-end: var(--space-4) }
+
+.checkbox-group { height: 100% }
+.checkbox-item { padding-inline-end: var(--space-2); }
 
 .tag {
     background: var(--inputBg);
@@ -88,9 +95,11 @@ font-form-card {
 	border-radius: var(--radius);
     overflow: clip;
     &:not(:last-of-type) {
-    	margin-block-end: var(--space-7);
+    	margin-block-end: var(--space-2);
 	}
 }
+
+.is-orange { color: var(--colorWarning) }
 
 small { font-size: 60% }
 pre {
@@ -99,12 +108,11 @@ pre {
 }
 
 header, footer {
-	margin: var(--rowGap) 0;
-	padding: var(--padding);
+	margin: var(--gap) auto;
+	padding: var(--space-3) var(--space-5);
 	border-radius: 3rem;
 	background: var(--fgColor);
 	border: 1px solid var(--fgBorder);
-	margin-inline: auto;
 }
 
 footer img { filter: invert(1) }
@@ -125,9 +133,10 @@ header h1 {
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;
+  line-height: 1.2;
 }
 
-.form-title { margin-block-end: var(--margin) }
+.form-title { margin-block-end: var(--space-1) }
 
 .form-title > .h6 {
 	background: var(--inputBg);
@@ -145,7 +154,6 @@ header h1 {
 	background: var(--fgColor);
 }
 
-.url-row label { margin-block-end: var(--space-3) }
 .url-row input { margin: 0 }
 
 span.error {
@@ -169,7 +177,7 @@ span.error {
 <body dark-mode class="a11y-inputs-off">
 <div id="app">
 	<header class="text-center">
-		<x-flex jc="center" ai="center" class="fullwidth">
+		<x-flex jc="center" ai="center" class="fullwidth" style="--gap:var(--space-4)">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.01 321.75" width="50px" class="inline large-only"><path d="M61.83 77.65 47.22 14.01l27.34 26.06 32.61-37.28 9.15 32.73L151.54 0l-6.67 76.08c-47.94-17.88-83.04 1.57-83.04 1.57Zm119.05 42.8-6.3-8.12-16.31 6.79 13.46 6.36-28.61 11.82 12.18 5.76-56.8 20.37 28.67-21.1-12.17-5.76 27.4-14.85-9.58-4.54 29.88-16.13c-15.76-11.46-45.82-23.88-95.53-10.73 0 0-42.37 9.76-47.95 59.16 0 0-3.27 8.07-1.39 16.43.91 4.67 1.88 9.94.49 14.61a34 34 0 0 1-4.67 9.94s-23.46 25-8.85 30.13c0 0 12.24 1.09 9.94 9.94 0 0-8.55 11.82 1.39 14.61 0 0-6.54 6.54-2.3 8.36 0 0 5.58 5.76 3.7 11.34 0 0-5.76 19.7 8.36 18.3 0 0 16.43.91 24.37 0 0 0 21.58-3.39 19.7 26.68h.24c0 6.54 5 11.94 11 11.94h76.32c6.06 0 11-5.4 11-11.94a233.57 233.57 0 0 1-6.52-28.68s-7.16-19.27 7.45-38c-.03-.06 51.19-63.53 11.43-122.69Z" fill="#EB9038"></path></svg>
 			<h1 class="ogg">@font-face generator</h1>
 		</x-flex>
@@ -179,7 +187,7 @@ span.error {
     <x-grid columns="12" columns-s="1f">
       <x-cell span="2-6" class="input">
         <form @submit.prevent>
-          <font-form-card class="font-form card" v-for="(font, index) in fonts" :key="index">
+          <font-form-card class="font-form card" v-for="(font, index) in fonts" :key="font.id">
             <x-flex jc="between" class="form-title">
               <h2 class="h6 text-normal text-uppercase">Font face {{ index + 1 }}</h2>
               <button
@@ -194,7 +202,7 @@ span.error {
             </x-flex>
 
             <x-grid columns="2" columns-s="1f">
-              <div class="form-row">
+              <x-flex direction="column" class="form-row">
                 <label :for="'font-name-' + index">Font Name</label>
                 <input
                   type="text"
@@ -203,9 +211,9 @@ span.error {
                   placeholder="e.g. 'Montserrat'"
                   required
                 />
-              </div>
+              </x-flex>
 
-              <div class="form-row">
+              <x-flex direction="column" class="form-row">
                 <x-flex wrap class="checkbox-group" style="--columnGap: var(--padding)">
                   <x-cell span="row"><strong>Apply font to</strong></x-cell>
                   <x-cell class="checkbox-item">
@@ -233,7 +241,7 @@ span.error {
                     <label :for="'logo-' + index">Logo</label>
                   </x-cell>
                 </x-flex>
-              </div>
+              </x-flex>
 
               <x-cell span="row">
 					<span class="text-hr text-normal">
@@ -241,7 +249,7 @@ span.error {
 					</span>
               </x-cell>
 
-              <x-cell class="form-row">
+              <x-flex direction="column" class="form-row">
                 <label :for="'font-weight-' + index">Font weight</label>
                 <select :id="'font-weight-' + index" v-model="font.weight">
                   <option value="100">100 - Thin</option>
@@ -255,113 +263,85 @@ span.error {
                   <option value="900">900 - Black</option>
                   <option value="950">950 - Extra Black (Ultra black)</option>
                 </select>
-              </x-cell>
+              </x-flex>
 
-              <x-cell class="form-row">
+              <x-flex direction="column" class="form-row">
                 <label :for="'font-style-' + index">Font style</label>
                 <select :id="'font-style-' + index" v-model="font.style">
                   <option value="normal">Normal</option>
                   <option value="italic">Italic (Oblique)</option>
                 </select>
-              </x-cell>
+              </x-flex>
 
                 <x-cell span="row">
 					<strong class="text-hr text-normal"><i class="fa-solid fa-link"></i>&nbsp;Font URLs</strong>
-					<span class="dim kinda-small block text-center"><i class="fa-solid fa-circle-info"></i> Leave the <span class="tag"><i class="fa-solid fa-link"></i> URL</span> input blank if you don't have a specific font file to upload.</span>
 				</x-cell>
 
-              <div class="form-row contents">
-                <x-subgrid span="2" span-s="row" class="url-inputs">
-                  <div class="url-row">
-                    <label :for="'woff2-' + index">
-                      <i class="fa-solid fa-link"></i>URL<span class="tag">.woff2</span>
+              <x-cell class="form-row contents">
+                <x-subgrid span="row" class="url-inputs">
+                  <x-flex direction="column" class="url-row" v-for="(source, sIndex) in font.sources" :key="source.id">
+                    <label :for="'src-' + index + '-' + sIndex">
+                      <i class="fa-solid fa-link"></i>Font URL
+                      <span class="tag" v-if="isValidSource(source.url)">{{ formatForUrl(source.url) }}</span>
                     </label>
-                    <input
-                      type="url"
-                      :id="'woff2-' + index"
-                      v-model="font.urls.woff2"
-                      placeholder="URL to .woff2 file"
-                      pattern="^https?://.*\.woff2($|\?.*)"
-                    />
-                    <span class="error" v-if="fontErrors[index].woff2">
-                      {{ fontErrors[index].woff2 }}
-                    </span>
-                  </div>
+                    <x-flex ai="center" style="gap:var(--space-0)">
+                      <input
+                        type="url"
+                        :id="'src-' + index + '-' + sIndex"
+                        v-model="source.url"
+                        placeholder="Paste a .woff2 / .woff / .ttf / .otf URL"
+                        style="flex:1;margin:0"
+                      />
+                      <button
+                        type="button"
+                        v-if="font.sources.length > 1"
+                        @click="removeSource(font, sIndex)"
+                        class="has-icon is-blank"
+                        aria-label="Remove this URL"
+                        style="margin:0"
+                      >
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </x-flex>
+                    <span class="error" v-if="fontErrors[index][sIndex]">{{ fontErrors[index][sIndex] }}</span>
+                  </x-flex>
 
-                  <div class="url-row">
-                    <label :for="'woff-' + index">
-                      <i class="fa-solid fa-link"></i>URL<span class="tag">.woff</span>
-                    </label>
-                    <input
-                      type="url"
-                      :id="'woff-' + index"
-                      v-model="font.urls.woff"
-                      placeholder="URL to .woff file"
-                      pattern="^https?://.*\.woff($|\?.*)"
-                    />
-                    <span class="error" v-if="fontErrors[index].woff">
-                      {{ fontErrors[index].woff }}
-                    </span>
-                  </div>
+                  <x-cell span="row" v-if="font.sources.length < maxSources && font.sources.every(s => isValidSource(s.url))">
+                    <button type="button" @click="addSource(font)" class="has-icon is-blank is-small" style="margin:0">
+                      <i class="fa-solid fa-plus"></i> Add fallback URL
+                    </button>
+                  </x-cell>
 
-                  <div class="url-row">
-                    <label :for="'ttf-' + index">
-                      <i class="fa-solid fa-link"></i>URL<span class="tag">.ttf</span>
-                    </label>
-                    <input
-                      type="url"
-                      :id="'ttf-' + index"
-                      v-model="font.urls.ttf"
-                      placeholder="URL to .ttf file"
-                      pattern="^https?://.*\.ttf($|\?.*)"
-                    />
-                    <span class="error" v-if="fontErrors[index].ttf">
-                      {{ fontErrors[index].ttf }}
-                    </span>
-                  </div>
-
-                  <div class="url-row">
-                    <label :for="'otf-' + index">
-                      <i class="fa-solid fa-link"></i>URL<span class="tag">.otf</span>
-                    </label>
-                    <input
-                      type="url"
-                      :id="'otf-' + index"
-                      v-model="font.urls.otf"
-                      placeholder="URL to .otf file"
-                      pattern="^https?://.*\.otf($|\?.*)"
-                    />
-                    <span class="error" v-if="fontErrors[index].otf">
-                      {{ fontErrors[index].otf }}
-                    </span>
-                  </div>
-
-                  <x-cell span="row"><span class="dim kinda-small block text-center"><span class="tag">TTF</span> <span class="tag">OTF</span> <span class="tag">EOT</span> are not webfont-optimized formats. Use them only as fallbacks.</span></x-cell>
+                  <x-cell span="row"><span class="dim kinda-small block text-center"><i class="fa-solid fa-circle-info"></i> Supported font types: <span class="tag" v-for="ext in allowedExts" :key="ext" style="margin-inline-start:var(--space-1)">{{ ext }}</span></span></x-cell>
+                  <x-cell span="row"><span class="dim kinda-small block text-center"><span class="tag">ttf</span> <span class="tag">otf</span> <span class="tag">eot</span> aren't webfont-optimized, use them only as fallbacks.</span></x-cell>
                 </x-subgrid>
-              </div>
+              </x-cell>
             </x-grid>
           </font-form-card>
 
-          <div class="actions sticky-bottom">
-            <button type="button" @click="addFont" class="is-blue has-icon"><i class="fa-solid fa-plus"></i> Add another font face</button>
-            <button type="button" @click="clearForms" class="is-red has-icon"><i class="fa-solid fa-arrows-rotate"></i>Clear All</button>
-          </div>
+          <x-flex class="actions sticky-bottom">
+            <x-cell><button type="button" @click="addFont" class="is-blue has-icon"><i class="fa-solid fa-plus"></i> Add another font face</button></x-cell>
+            <x-cell><button type="button" @click="clearForms" class="is-red has-icon"><i class="fa-solid fa-arrows-rotate"></i>Clear All</button></x-cell>
+          </x-flex>
         </form>
       </x-cell>
 
       <x-cell span="4" id="output" class="output">
         <div class="sticky">
-          <pre><code>{{ generateCss() }}</code></pre>
+          <pre v-if="generateCss()"><code>{{ generateCss() }}</code></pre>
           <p></p>
           <x-flex jc="between" ai="end" wrap="wrap" style="gap:var(--space-1)">
-            <x-cell style="margin:var(--space-1) var(--space-2) 0px var(--space-2)">
-              <small class="dim block text-center">
+            <x-cell span="row" style="margin:var(--space-1) var(--space-2) 0px var(--space-2)">
+              <small v-if="!canCopy" class="block text-center is-orange" style="font-size:var(--type-3)">
+                <i class="fa-solid fa-circle-info"></i> Add a <strong>Font Name</strong> and a valid <strong>Font URL</strong> to enable copy.
+              </small>
+              <small v-else class="dim block text-center">
                 <i class="fa-solid fa-copy"></i><strong>Copy</strong> and <i class="fa-solid fa-copy"></i><strong>Paste</strong> the generated code
-                inside your theme.
+                inside your OpenThinking theme.
               </small>
             </x-cell>
             <x-cell span="row">
-              <button @click="copyToClipboard" :disabled="!fonts.some(f => f.name.trim())" class="is-green has-icon fullwidth">
+              <button @click="copyToClipboard" :disabled="!canCopy" class="is-green has-icon fullwidth">
                 <i class="fa-solid fa-file"></i>
                 <span>Copy</span>
               </button>
@@ -389,13 +369,15 @@ span.error {
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
 const { createApp, ref, computed } = Vue
+let uid = 0
 
-			createApp({
+			const app = createApp({
 				setup() {
 					const fonts = ref([createDefaultFont()])
 
 					function createDefaultFont() {
 						return {
+							id: uid++,
 							name: '',
 							applyTo: {
 								body: true,
@@ -404,14 +386,23 @@ const { createApp, ref, computed } = Vue
 							},
 							weight: '400',
 							style: 'normal',
-							urls: {
-								woff2: '',
-								woff: '',
-								ttf: '',
-								otf: '',
-							},
+							sources: [createSource()],
 						}
 					}
+
+					function createSource() {
+						return { id: uid++, url: '' }
+					}
+
+					// extension -> CSS src format() value
+					const EXT_FORMAT = {
+						woff2: 'woff2',
+						woff: 'woff',
+						ttf: 'truetype',
+						otf: 'opentype',
+						eot: 'embedded-opentype',
+					}
+					const formatForUrl = (url) => EXT_FORMAT[getExtension(url)] || ''
 
 					const getExtension = (url) => {
 						try {
@@ -424,20 +415,35 @@ const { createApp, ref, computed } = Vue
 						}
 					}
 
-					const validateUrl = (url, extension) => {
+					const isHttpUrl = (url) => {
+						try {
+							const { protocol } = new URL(url)
+							return protocol === 'http:' || protocol === 'https:'
+						} catch (e) {
+							return false
+						}
+					}
+					const isValidSource = (url) => isHttpUrl(url) && !!formatForUrl(url)
+					const allowedExts = Object.keys(EXT_FORMAT)
+
+					const sourceError = (url) => {
 						if (!url) return ''
-						const expectedExt = extension.slice(1)
-						const ext = getExtension(url)
-						return ext === expectedExt ? '' : `Must be a ${extension} file.`
+						if (!isHttpUrl(url)) return 'Enter a full URL starting with https://'
+						if (!formatForUrl(url)) return 'Unrecognized font type.'
+						return ''
 					}
 
-					const fontErrors = computed(() => {
-						return fonts.value.map((font) => ({
-							woff2: validateUrl(font.urls.woff2, '.woff2'),
-							woff: validateUrl(font.urls.woff, '.woff'),
-							ttf: validateUrl(font.urls.ttf, '.ttf'),
-							otf: validateUrl(font.urls.otf, '.otf'),
-						}))
+					// fontErrors[fontIndex][sourceIndex] -> error string ('' = ok)
+					const fontErrors = computed(() =>
+						fonts.value.map((font) => font.sources.map((s) => sourceError(s.url)))
+					)
+
+					const canCopy = computed(() => {
+						const named = fonts.value.filter((f) => f.name.trim())
+						const anyError = fonts.value.some((f) => f.sources.some((s) => sourceError(s.url)))
+						const allNamedHaveValidUrl = named.every((f) => f.sources.some((s) => isValidSource(s.url)))
+						const allNamedApplied = named.every((f) => f.applyTo.body || f.applyTo.headings || f.applyTo.logo)
+						return named.length > 0 && allNamedHaveValidUrl && allNamedApplied && !anyError
 					})
 
 					function addFont() {
@@ -446,6 +452,17 @@ const { createApp, ref, computed } = Vue
 
 					function removeFont(index) {
 						fonts.value.splice(index, 1)
+					}
+
+					const maxSources = Object.keys(EXT_FORMAT).length // one URL per supported format
+
+					function addSource(font) {
+						if (font.sources.length >= maxSources) return
+						font.sources.push(createSource())
+					}
+
+					function removeSource(font, i) {
+						font.sources.splice(i, 1)
 					}
 
 					function clearForms() {
@@ -463,11 +480,12 @@ const { createApp, ref, computed } = Vue
 								css += `  font-style: ${font.style};\n`
 								css += `  font-display: swap;\n`
 
+								// keep the user's order as the fallback order
 								let sources = []
-								if (font.urls.woff2) sources.push(`url('${font.urls.woff2}') format('woff2')`)
-								if (font.urls.woff) sources.push(`url('${font.urls.woff}') format('woff')`)
-								if (font.urls.ttf) sources.push(`url('${font.urls.ttf}') format('truetype')`)
-								if (font.urls.otf) sources.push(`url('${font.urls.otf}') format('opentype')`)
+								font.sources.forEach((s) => {
+									const fmt = formatForUrl(s.url)
+									if (s.url && fmt) sources.push(`url('${s.url}') format('${fmt}')`)
+								})
 
 								css += sources.length > 0 ? `  src: ${sources.join(',\n       ')};\n` : `  src: /* Add font file URLs */\n`
 								css += `}\n`
@@ -519,14 +537,24 @@ const { createApp, ref, computed } = Vue
 					return {
 						fonts,
 						fontErrors,
+						allowedExts,
+						maxSources,
+						formatForUrl,
+						isValidSource,
+						canCopy,
 						addFont,
 						removeFont,
+						addSource,
+						removeSource,
 						clearForms,
 						generateCss,
 						copyToClipboard,
 					}
 				},
-			}).mount('#app')
+			})
+			// x-* (Skelet) and font-form-card are custom elements, not Vue components
+			app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('x-') || tag === 'font-form-card'
+			app.mount('#app')
 </script>
 
 <script>setTimeout(() => {!function(e,t,a,n,c,m,r){e.ym=e.ym||function(){(e.ym.a=e.ym.a||[]).push(arguments)},e.ym.l=1*new Date,m=t.createElement(a),r=t.getElementsByTagName(a)[0],m.async=1,m.src="https://mc.yandex.ru/metrika/tag.js",r.parentNode.insertBefore(m,r)}(window,document,"script"),ym(87490716,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});}, 3000);</script><noscript><div><img src="https://mc.yandex.ru/watch/87490716" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
